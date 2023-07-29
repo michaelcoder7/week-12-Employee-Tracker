@@ -71,4 +71,25 @@ const AddEmployeeQuestions = [
   },
 ];
 
-const UpdateEmployeeRoleQuestions = [{}];
+const UpdateEmployeeRoleQuestions = [
+  {
+    type: "list",
+    name: "employee_id",
+    message: "Select the Employee to update",
+    choices: [],
+  },
+  {
+    type: "list",
+    name: "role_id",
+    message: "Select the Employee's new Role",
+    choices: [],
+  },
+];
+
+module.exports = {
+  MainMenuQuestions,
+  AddDepartmentQuestions,
+  AddRoleQuestions,
+  AddEmployeeQuestions,
+  UpdateEmployeeRoleQuestions,
+};
