@@ -39,7 +39,7 @@ class EmployeeDatabase extends Database {
            role.title as role_title,
            role.salary as role_salary,
            department.name as department_name,
-           IF(CONCAT(manager.first_name, ' ', manager.last_name) IS NULL , '', CONCAT(manager.first_name, ' ', manager.last_name))
+           CONCAT(manager.first_name, ' ', manager.last_name) as manager_name
            
            FROM employee
              INNER JOIN role ON employee.role_id = role.id
