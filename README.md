@@ -20,7 +20,9 @@ THEN One is prompted to enter the employee’s first name, last name, role, and 
 WHEN One chooses to update an employee role
 THEN One is prompted to select an employee to update and their new role and this information is updated in the database
 
-```
+## Project Description
+
+This is a command-line application which manages a company's employee database, using Node.js, Inquirer version 8.2.4 and MySQL.
 
 ## Activities carried out and Important Information
 
@@ -33,4 +35,3 @@ Seperate file for questions was made and implemented into index.js file
 Link to the walkthrough video is added this README
 
 ## Link to Walkthrough Video
-```

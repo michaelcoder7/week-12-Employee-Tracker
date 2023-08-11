@@ -118,7 +118,7 @@ const add_employee = () => {
         name: "None",
       });
 
-      inquirer.prompt(AddDepartmentQuestions).then((response) => {
+      inquirer.prompt(AddEmployeeQuestions).then((response) => {
         db.addEmployee(response).then((results) => {
           console.log("\n", results, "\n");
           doMenuQuestions();
