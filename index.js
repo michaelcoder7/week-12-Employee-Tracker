@@ -35,6 +35,68 @@ const doMenuQuestions = () => {
       case "add_role":
         add_role();
         break;
+      case "add_employee":
+        add_employee();
+        break;
+      case "update_role":
+        update_role();
+        break;
     }
+  });
+};
+
+const view_departments = () => {
+  db.getDepartments().then((results) => {
+    console.table(results);
+    doMenuQuestions();
+  });
+};
+
+const view_roles = () => {
+  db.getRoles().then((results) => {
+    console.table(results);
+    doMenuQuestions();
+  });
+};
+
+const view_employees = () => {
+  db.getEmployees().then((results) => {
+    console.table(results);
+    doMenuQuestions();
+  });
+};
+
+const add_department = () => {
+  inquirer.prompt(AddDepartmentQuestions).then((response) => {
+    db.addDepartment(response).then((results) => {
+      console.log("\n", results, "\n");
+      doMenuQuestions();
+    });
+  });
+};
+
+const add_role = () => {
+  db.getDepartments().then((results) => {
+    const departmentQuestion = AddRoleQuestions[2];
+    results.forEach((department) => {
+      departmentQuestion.choices.push({
+        value: department.id,
+        name: department.name,
+      });
+    });
+
+    inquirer.prompt(AddRoleQuestions).then((response) => {
+      db.addRole(response).then((results) => {
+        console.log("\n", results, "\n");
+        doMenuQuestions();
+      });
+    });
+  });
+};
+
+const add_employee = () => {
+  db.getRoles().then((results) => {
+    const roleQuestion = AddEmployeeQuestions[2];
+    results.forEach((role) => {});
   });
 };
