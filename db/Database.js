@@ -29,5 +29,9 @@ class Database {
       console.log("Connected to the Employee database.")
     );
   }
-  disconnect() {}
+  disconnect() {
+    this.db.disconnect();
+  }
 }
+
+module.exports = Database;
