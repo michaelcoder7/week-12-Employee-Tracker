@@ -1,5 +1,9 @@
 # week-12-Employee-Tracker
 
+## Project Description
+
+This is a command-line **content management system (CMS)** application which manages a company's employee database, created using Node.js, Inquirer version 8.2.4 and MySQL.
+
 ## Acceptance Criteria
 
 GIVEN a command-line application that accepts user input
@@ -22,11 +26,13 @@ THEN One is prompted to select an employee to update and their new role and this
 
 ## Project Description
 
-This is a command-line application which manages a company's employee database, using Node.js, Inquirer version 8.2.4 and MySQL.
+This is a command-line **content management system (CMS)** application which manages a company's employee database, created using Node.js, Inquirer version 8.2.4 and MySQL.
 
 ## Activities carried out and Important Information
 
-Package-lock.json and package.json files w generated
+Inquirer package version 8.2.4 installed
+
+Package-lock.json and package.json files were generated
 
 necessary extra files created and linked together for functionality
 
@@ -35,3 +41,5 @@ Seperate file for questions was made and implemented into index.js file
 Link to the walkthrough video is added this README
 
 ## Link to Walkthrough Video
+
+https://watch.screencastify.com/v/93gkUz2GBpwANx36U7UK
