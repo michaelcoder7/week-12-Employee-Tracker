@@ -36,8 +36,58 @@ class EmployeeDatabase extends Database {
         `SELECT
            employee.id,
            CONCAT(employee.first_name, ' ', employee.last_name) as name,
-           `
+           role.title as role_title,
+           role.salary as role_salary,
+           department.name as department_name,
+           IF(CONCAT(manager.first_name, ' ', manager.last_name) IS NULL , '', CONCAT(manager.first_name, ' ', manager.last_name))
+           
+           FROM employee
+             INNER JOIN role ON employee.role_id = role.id
+             INNER JOIN department ON role.department_id = department.id
+             LEFT JOIN employee as manager ON employee.manager_id = manager.id`,
+        (err, results) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(results);
+        }
       );
     });
+  }
+
+  addDepartment(department) {
+    return new Promise((resolve, reject) => {
+      this.db.query(
+        "INSERT INTO department SET ?",
+        { name: department.department_name },
+        (err, results) => {
+          if (err) {
+            reject(err);
+          }
+          resolve(`Department ${department.department_name}added successfully`);
+        }
+      );
+    });
+  }
+
+  addRole(role) {
+    const roleData = {
+      title: role.title,
+      salary: role.salary,
+      department_id: role.department_id,
+    };
+
+    return new Promise((resolve, reject) => {
+      this.db.query("INSERT INTO role SET ?", roleData, (err, results) => {
+        if (err) {
+          reject(err);
+        }
+        resolve(`Role ${role.title} added successfully`);
+      });
+    });
+  }
+
+  addEmployee(employee) {
+    const employeeData = {};
   }
 }
